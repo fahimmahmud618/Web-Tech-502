@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            height: 100%;
+        }
+
+        div.top {
+            height: 20%;
+            width: 100%;
+            background-color: rgb(23, 23, 196);
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        div.center {
+            height: 70%;
+            background-color: blueviolet;
+        }
+
+        div.bottom {
+            height: 10%;
+            width: 100%;
+            background-color: rgb(49, 48, 48);
+        }
+
+        div.left_center {
+            width: 32%;
+            height: 100%;
+            background-color: rgb(150, 243, 44);
+            /* border: 1px solid black; */
+            float: left;
+        }
+
+        div.right_center {
+            width: 80%;
+            height: 100%;
+            background-color: rgb(255, 215, 140);
+            /* border: 1px solid black; */
+            float: left;
+        }
+
+        div.tab {
+            /* width: 97%; */
+            height: 15%;
+            margin: 2px;
+            background-color: rgb(253, 169, 13);
+            border: 1px solid black;
+        }
+
+        .tab{
+            text-align: center;
+            color: rgb(104, 103, 103);
+        }
+
+        .tab_item1{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <h2 style="color: white;">Tower of Hanoi</h2>
+    </div>
+    <div class="center" id="hanoi">
+        <div class="left_center fl">
+            <div class="tab">2</div>
+            <div class="tab">1</div>
+            <div class="tab">4</div>
+            <div class="tab">3</div>
+        </div>
+        <div class="left_center fl"> </div>
+        <div class="left_center fl"> </div>
+    </div>
+
+    <button id="b1" onclick="btn1()">1>2</button>
+    <button id="b2" onclick="btn2()">1>3</button>
+    <button id="b3" onclick="btn3()">2->1</button>
+    <button id="b4" onclick="btn4()">2->3</button>
+    <button id="b5" onclick="btn5()">3->1</button>
+    <button id="b6" onclick="btn6()">3->2</button>
+
+    <div class="bottom"><h3 style="text-align: center;">Copyright BSSE 1231</h3></div>
+
+    
+    <script>
+
+        function btn1()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[0];
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[1];
+            post.insertBefore(new_node,post.children[0]);
+
+            f_child.children[0].remove();
+        }
+        function btn2()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[0]; //here
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[2]; //here
+            post.insertBefore(new_node,post.children[0]);
+
+                        //here
+            f_child.children[0].remove();
+        }
+        function btn3()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[1]; //here1
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[0]; //here2
+            post.insertBefore(new_node,post.children[0]);
+
+                        //here1
+            f_child.children[0].remove();
+        }
+        function btn4()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[1]; //here1
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[2]; //here2
+            post.insertBefore(new_node,post.children[0]);
+
+                        //here1
+            f_child.children[0].remove();
+        }
+        function btn5()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[2]; //here1
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[0]; //here2
+            post.insertBefore(new_node,post.children[0]);
+
+                        //here1
+            f_child.children[0].remove();
+        }
+        function btn6()
+        {
+            let pre = document.getElementById('hanoi');
+            let f_child = pre.children[2]; //here1
+
+            let new_node = document.createElement('div');
+            new_node.innerText=f_child.children[0].innerHTML;
+            console.log(new_node.innerHTML);
+            new_node.setAttribute('class','tab');
+            // document.getElementById('hanoi').insertBefore(new_node,pre.children[0]);
+            let post = document.getElementById('hanoi').children[1]; //here2
+            post.insertBefore(new_node,post.children[0]);
+
+                        //here1
+            f_child.children[0].remove();
+        }
+    </script>
+</body>
+
+</html>
